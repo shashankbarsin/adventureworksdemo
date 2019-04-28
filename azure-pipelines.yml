@@ -12,7 +12,7 @@ pool:
 steps:
 - task: MSBuild@1
   inputs:
-    solution: '**/src/NewAdventureWorks.sln'
+    solution: '**/src/AdventureWorks/AdventureWorks.sqlproj'
     msbuildArguments: '/t:build /p:CmdLineInMemoryStorage=True'
 - script: find *.dacpac
 #- task: PublishBuildArtifacts@1
