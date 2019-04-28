@@ -14,8 +14,24 @@ steps:
   inputs:
     solution: '**/src/AdventureWorks/AdventureWorks.sqlproj'
     msbuildArguments: '/t:build /p:CmdLineInMemoryStorage=True'
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: 'src/AdventureWorks/bin/Debug/AdventureWorks.dacpac'
     ArtifactName: 'AdventureWorks'
     publishLocation: 'Container'
+
+- task: SqlAzureDacpacDeployment@1
+  inputs:
+    azureSubscription: 'RMPM (afc11291-9826-46be-b852-70349146ddf8)'
+    AuthenticationType: 'server'
+    ServerName: 'shasbsql.database.windows.net'
+    DatabaseName: 'shasbSQLDatabase'
+    SqlUsername: 'shasb'
+    SqlPassword: 'Nandan199#'
+    deployType: 'DacpacTask'
+    DeploymentAction: 'Publish'
+    DacpacFile: 'src/AdventureWorks/bin/Debug/AdventureWorks.dacpac'
+    IpDetectionMethod: 'AutoDetect'
+
+
