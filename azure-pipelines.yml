@@ -1,0 +1,22 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: MSBuild@1
+  inputs:
+    solution: '**/src/NewAdventureWorks.sln'
+    msbuildArguments: '/t:build /p:CmdLineInMemoryStorage=True'
+- script: find *.dacpac
+#- task: PublishBuildArtifacts@1
+#  inputs:
+#    PathtoPublish: 'samples/databases/wide-world-importers/wwi-dw-ssdt/bin/Debug'
+#    ArtifactName: 'WideWorldImportersDatabase'
+#    publishLocation: 'Container'
