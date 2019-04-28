@@ -14,9 +14,8 @@ steps:
   inputs:
     solution: '**/src/AdventureWorks/AdventureWorks.sqlproj'
     msbuildArguments: '/t:build /p:CmdLineInMemoryStorage=True'
-- script: find *.dacpac
-#- task: PublishBuildArtifacts@1
-#  inputs:
-#    PathtoPublish: 'samples/databases/wide-world-importers/wwi-dw-ssdt/bin/Debug'
-#    ArtifactName: 'WideWorldImportersDatabase'
-#    publishLocation: 'Container'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'src/AdventureWorks/bin/Debug/AdventureWorks.dacpac'
+    ArtifactName: 'AdventureWorks'
+    publishLocation: 'Container'
