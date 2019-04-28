@@ -28,7 +28,7 @@ steps:
     ServerName: 'shasbsql.database.windows.net'
     DatabaseName: 'shasbSQLDatabase'
     SqlUsername: 'shasb'
-    SqlPassword: 'Nandan199#'
+    SqlPassword: $(password)
     deployType: 'DacpacTask'
     DeploymentAction: 'Publish'
     DacpacFile: 'src/AdventureWorks/bin/Debug/AdventureWorks.dacpac'
