@@ -33,6 +33,9 @@ steps:
     DeploymentAction: 'Publish'
     DacpacFile: '**/src/AdventureWorks/bin/Debug/AdventureWorks.dacpac'
     IpDetectionMethod: 'AutoDetect'
+    AdditionalArguments: /p:DeploymentConfiguration=Release
+
+
 
 
 
