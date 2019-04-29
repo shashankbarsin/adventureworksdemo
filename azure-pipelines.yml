@@ -21,19 +21,6 @@ steps:
     ArtifactName: 'AdventureWorks'
     publishLocation: 'Container'
 
-- task: SqlAzureDacpacDeployment@1
-  inputs:
-    azureSubscription: 'shasbARM'
-    AuthenticationType: 'server'
-    ServerName: 'shasbsql.database.windows.net'
-    DatabaseName: 'shasbSQLDatabase'
-    SqlUsername: 'shasb'
-    SqlPassword: '$(password)'
-    deployType: 'DacpacTask'
-    DeploymentAction: 'Publish'
-    DacpacFile: '**/src/AdventureWorks/bin/Debug/AdventureWorks.dacpac'
-    IpDetectionMethod: 'AutoDetect'
-
 
 
 
